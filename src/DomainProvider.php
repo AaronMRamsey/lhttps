@@ -20,12 +20,13 @@ class DomainProvider
 		return $this->domainTwo;
 	}
 
-	public function setDomainOne($domainOne)
+	public function setDomainOne($domainOne = "localhost")
 	{
-			if (!$domainOne) {
-				$this->domainOne = "localhost";
-			}else{
-				$this->domainOne = $domainOne;
-			}
+			$this->domainOne = $domainOne;
+			// if (!$domainOne) {
+			// 	$this->domainOne = "localhost";
+			// }else{
+			// 	$this->domainOne = $domainOne;
+			// }
 	}
 }

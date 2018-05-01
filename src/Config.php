@@ -25,6 +25,7 @@ class Config{
 				}
 			}
 		}
+		
 	}
 
 	public static function file($path, $domainOne, $domainTwo)

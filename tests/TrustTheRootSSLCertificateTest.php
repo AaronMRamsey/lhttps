@@ -8,10 +8,9 @@ class TrustTheRootSSLCertificateTest extends CustomTestCase {
 	   /** @test */
 	public function it_can_add_root_certificate_authority_to_host_trusted_list()
 	    {
-	    	$cheker = "OS";
-	    	$option = null;
-	    	
-	    	$trusted = new TrustTheRootSSLCertificate($this->path, $cheker, $option);
+	    	$os = "Darwin";
+	    	// $os = $os = exec("uname -a");
+	    	$trusted = new TrustTheRootSSLCertificate($this->path, $os, $option = null);
 
 	    	$this->assertEquals(1, $trusted->getError());
 		}
