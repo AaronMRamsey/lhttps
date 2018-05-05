@@ -11,7 +11,7 @@ class CustomTestCase extends TestCase {
 
 	public static function setUpBeforeClass()
     {
-        (new Config);
+        Config::createFolders(Path::all());
     }
 
     public function setUp()

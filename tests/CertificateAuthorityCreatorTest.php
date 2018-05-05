@@ -2,6 +2,7 @@
 use Madeny\lhttps\Test\CustomTestCase;
 use Madeny\lhttps\CertificateAuthorityCreator;
 use Madeny\lhttps\CertificateKeyCreator;
+use Madeny\lhttps\Config;
 
 class CertificateAuthorityCreatorTest extends CustomTestCase{
 

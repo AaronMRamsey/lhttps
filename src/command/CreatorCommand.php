@@ -39,7 +39,7 @@ class CreatorCommand extends Command
         // Instantiating dependencies
         $path = Path::all();
 
-        (new Config);
+        Config::createFolders($path);
         $domain = new DomainProvider();
 
         $domainName = $input->getArgument('domainName');
@@ -72,7 +72,7 @@ class CreatorCommand extends Command
        }
 
        // Disply error messages.
-       if ( $trust->getError() == 2) {
+       if ( $trust->getError() == 1) {
            $output->writeln('<error>Sorry this host not support!</error>');
        }elseif ($trust->getError() == 1) {
             $output->writeln('<info>Fail to add your certificate to trust list you can do it manually</info>');

@@ -2,8 +2,13 @@
 declare(strict_types=1);
 use Madeny\lhttps\Test\CustomTestCase;
 use Madeny\lhttps\Factory;
+use Madeny\lhttps\Config;
 class FactoryTest extends CustomTestCase
 {
+	public static function setUpBeforeClass()
+    {
+        (new Config);
+    }
    	/** @test */
 	public function a_user_can_generate_root_certificate_key()
     {
@@ -92,13 +97,20 @@ class FactoryTest extends CustomTestCase
 		}
 
 		/** @test */
-		public function a_user_can_Trust_the_root_SSL_certificate()
+		public function a_user_can_Trust_the_root_SSL_certificate_on_mac()
     	{
-    		$os = exec("uname -a");
+    		$checkOS = exec("uname -a");
 
-    		$trusted = Factory::trust($this->path, $os, $option = null);
+    		$trusted = Factory::trust($this->path, $checkOS, $option = null);
 
-    		$this->assertEquals($trusted->getError(), 1);
+    		if ($trusted->getError() == 0) {
+    			$this->assertEquals($trusted->getError(), 0);
+    		} else{
+    			$this->assertEquals($trusted->getError(), 1);
+    		}
+
+    		
+    		
 		}
 	
 }

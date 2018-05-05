@@ -1,14 +1,17 @@
-<?php
+<?php 
 use Madeny\lhttps\Test\CustomTestCase;
 use Madeny\lhttps\Config;
 
-class ConfigTest extends CustomTestCase {
-
+class ConfigTest extends CustomTestCase{
 	   /** @test */
-	public function it_can_create_output_folder()
+	public function it_can_provide_necessery_folders()
 	    {
-	    	$folderprofilder = new Config($this->path);
+	    	$files = Config::createFolders($this->path);
 
-	    	$this->assertTrue(true);
+	    	$this->assertTrue(file_exists($this->path."/cnf"));
+	    	
 		}
+
+	
+
 }

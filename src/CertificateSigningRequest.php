@@ -20,10 +20,5 @@ class CertificateSigningRequest{
 	{
 		return $this->error;
 	}
-
-	public function setError($error)
-	{
-		$this->error = $error;
-	}
 }
 

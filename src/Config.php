@@ -6,26 +6,19 @@ use Madeny\lhttps\Path;
 
 class Config{
 
-	function __construct()
+
+	public function createFolders($path)
 	{
-
-		$folders = ['cnf', 'config', 'csr', 'keys', 'live', 'logs'];
-		$i = 0;
-
-		foreach ($folders as $key => $value) {
-			
-			if (file_exists(Path::all()."/".$value)) {
-				echo "\n ... checking output folders \n";
+		$folders = ["cnf", 'keys', 'csr' , 'live', 'logs', 'config'];
+	
+			foreach ($folders as $folder) {
+				if (!is_dir($path."/".$folder)) {
+				mkdir($path."/".$folder);
+			}else{
+				echo "\n --------- \n";
 				return;
-			}else {
-				while ($i < 6) {
-
-					mkdir(Path::all()."/".$folders[$i]);
-					$i++;
-				}
-			}
+			}		
 		}
-		
 	}
 
 	public static function file($path, $domainOne, $domainTwo)
